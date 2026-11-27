@@ -29,6 +29,7 @@ ALTER TABLE telefone DROP foreign key fk_aluno_telefone;
 desc telefone;
 ALTER TABLE aluno modify column idaluno int not null auto_increment;
 
+ -- MÉTODO ALTERNATIVO --
 SET FOREIGN_KEY_CHECKS = 0; -- Desativando temporariamente as chaves do MYSQL
 ALTER TABLE aluno modify column idaluno int not null auto_increment;
 SET FOREIGN_KEY_CHECKS = 1; -- Ativando temporariamente as chaves do MYSQL
@@ -60,3 +61,5 @@ ALTER TABLE endereco ADD INDEX (fk_idAluno);
 -- Recriando a chave estrangeira:
 ALTER TABLE endereco ADD CONSTRAINT fk_aluno_endereco
 FOREIGN KEY (fk_idAluno) REFERENCES aluno(idaluno);
+
+SHOW CREATE TABLE endereco;
